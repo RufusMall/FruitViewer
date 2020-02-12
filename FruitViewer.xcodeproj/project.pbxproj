@@ -13,6 +13,7 @@
 		AC14859823F4722F00C89923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC14859723F4722F00C89923 /* Assets.xcassets */; };
 		AC14859B23F4722F00C89923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC14859923F4722F00C89923 /* LaunchScreen.storyboard */; };
 		AC1485A623F4723000C89923 /* FruitViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1485A523F4723000C89923 /* FruitViewerTests.swift */; };
+		AC1485B123F4763900C89923 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AC1485B023F4763900C89923 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		AC1485A123F4723000C89923 /* FruitViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FruitViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC1485A523F4723000C89923 /* FruitViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitViewerTests.swift; sourceTree = "<group>"; };
 		AC1485A723F4723000C89923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC1485B023F4763900C89923 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		AC14858223F4722D00C89923 = {
 			isa = PBXGroup;
 			children = (
+				AC1485B023F4763900C89923 /* README.md */,
 				AC14858D23F4722D00C89923 /* FruitViewer */,
 				AC1485A423F4723000C89923 /* FruitViewerTests */,
 				AC14858C23F4722D00C89923 /* Products */,
@@ -177,6 +180,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC1485B123F4763900C89923 /* README.md in Resources */,
 				AC14859B23F4722F00C89923 /* LaunchScreen.storyboard in Resources */,
 				AC14859823F4722F00C89923 /* Assets.xcassets in Resources */,
 			);
