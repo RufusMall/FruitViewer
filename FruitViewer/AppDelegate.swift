@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FruitKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = ViewController()
+        
+        let fruitListViewModel = FruitListViewModel(FruitService: FruitService(baseURL: Environment.devFruit.url))
+        let fruitListViewContoller = FruitListViewController(viewModel: fruitListViewModel)
+        fruitListViewModel.viewDelegate = fruitListViewContoller
+        
+        window?.rootViewController = fruitListViewContoller
         window?.makeKeyAndVisible()
         return true
     }
