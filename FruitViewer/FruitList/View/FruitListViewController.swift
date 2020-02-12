@@ -12,6 +12,11 @@ import UIKit
 class FruitListViewController: UIViewController, FruitListViewDelegate {
     let viewModel: FruitListViewModel
     
+    let refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        return refreshControl
+    }()
+    
     init(viewModel: FruitListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -42,7 +47,10 @@ class FruitListViewController: UIViewController, FruitListViewDelegate {
         navigationItem.largeTitleDisplayMode = .always
         
         self.view.addSubview(tableView)
+        tableView.refreshControl = refreshControl
         tableView.rowHeight = UITableView.automaticDimension
+        
+        refreshControl.addTarget(self, action: #selector(self.refreshControlChanged), for: .valueChanged)
         tableView.constrainPinningEdgesToSuperview()
     }
     
@@ -58,6 +66,7 @@ class FruitListViewController: UIViewController, FruitListViewDelegate {
     
     func didUpdate(viewModel: FruitListViewModel) {
         self.title = viewModel.title
+        refreshControl.endRefreshing()
         tableView.reloadData()
         
         if viewModel.shouldShowError {
