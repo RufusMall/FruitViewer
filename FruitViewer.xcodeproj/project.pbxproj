@@ -13,6 +13,8 @@
 		AC14859B23F4722F00C89923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC14859923F4722F00C89923 /* LaunchScreen.storyboard */; };
 		AC1485A623F4723000C89923 /* FruitViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1485A523F4723000C89923 /* FruitViewerTests.swift */; };
 		AC1485B123F4763900C89923 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AC1485B023F4763900C89923 /* README.md */; };
+		AC1485FC23F47EA000C89923 /* FruitKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1485FB23F47EA000C89923 /* FruitKit.framework */; };
+		AC1485FD23F47EA000C89923 /* FruitKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC1485FB23F47EA000C89923 /* FruitKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +27,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		AC1485FE23F47EA000C89923 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AC1485FD23F47EA000C89923 /* FruitKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		AC14858B23F4722D00C89923 /* FruitViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC14858E23F4722D00C89923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +52,7 @@
 		AC1485A523F4723000C89923 /* FruitViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitViewerTests.swift; sourceTree = "<group>"; };
 		AC1485A723F4723000C89923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC1485B023F4763900C89923 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AC1485FB23F47EA000C89923 /* FruitKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FruitKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC1485FC23F47EA000C89923 /* FruitKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +81,7 @@
 				AC14858D23F4722D00C89923 /* FruitViewer */,
 				AC1485A423F4723000C89923 /* FruitViewerTests */,
 				AC14858C23F4722D00C89923 /* Products */,
+				AC1485FA23F47EA000C89923 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +115,14 @@
 			path = FruitViewerTests;
 			sourceTree = "<group>";
 		};
+		AC1485FA23F47EA000C89923 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC1485FB23F47EA000C89923 /* FruitKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,6 +133,7 @@
 				AC14858723F4722D00C89923 /* Sources */,
 				AC14858823F4722D00C89923 /* Frameworks */,
 				AC14858923F4722D00C89923 /* Resources */,
+				AC1485FE23F47EA000C89923 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
