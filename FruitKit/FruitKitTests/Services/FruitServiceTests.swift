@@ -20,7 +20,7 @@ class FruitServiceTests: FruitKitTestCase {
     func testGetFruitSucceeds() {
         let expectation = self.expectation()
         
-        fruitService.getFruit { (result) in
+        fruitService.getFruits { (result) in
             switch result {
             case .success(let response):
                 print(response)
@@ -38,7 +38,7 @@ class FruitServiceTests: FruitKitTestCase {
     func testEnsureCallbackOnMainThread() {
          let expectation = self.expectation()
         
-        fruitService.getFruit { (result) in
+        fruitService.getFruits { (result) in
             XCTAssertTrue(Thread.isMainThread)
             expectation.fulfill()
         }

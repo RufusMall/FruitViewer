@@ -13,5 +13,5 @@ public protocol FruitServiceProtocol {
     
     /// get fruit
     /// - Parameter completion: the completion is guaranteed to be called on the main thread
-    func getFruit(completion:@escaping FruitCompletion)
+    func getFruits(completion:@escaping FruitCompletion)
 }

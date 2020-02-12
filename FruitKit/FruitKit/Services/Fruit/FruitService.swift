@@ -9,7 +9,7 @@
 import Foundation
 
 public class FruitService: BaseService, FruitServiceProtocol {
-    public func getFruit(completion: @escaping FruitCompletion) {
+    public func getFruits(completion: @escaping FruitCompletion) {
         get(path: "data.json", completion: completion)
     }
 }
