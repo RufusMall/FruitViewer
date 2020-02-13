@@ -24,6 +24,9 @@
 		AC14863623F4D6E000C89923 /* FruitDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14863523F4D6E000C89923 /* FruitDetailsViewModel.swift */; };
 		AC14863923F4D9C300C89923 /* FruitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14863823F4D9C300C89923 /* FruitDetailsViewController.swift */; };
 		AC14863B23F4DFBC00C89923 /* CanvasPreviewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14863A23F4DFBC00C89923 /* CanvasPreviewHelpers.swift */; };
+		AC14864023F4ECDE00C89923 /* WeightFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14863F23F4ECDE00C89923 /* WeightFormatter.swift */; };
+		AC14864423F4ED5000C89923 /* FormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14864323F4ED5000C89923 /* FormatterTests.swift */; };
+		AC14864623F4F36D00C89923 /* PriceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14864523F4F36D00C89923 /* PriceFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,9 @@
 		AC14863523F4D6E000C89923 /* FruitDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitDetailsViewModel.swift; sourceTree = "<group>"; };
 		AC14863823F4D9C300C89923 /* FruitDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitDetailsViewController.swift; sourceTree = "<group>"; };
 		AC14863A23F4DFBC00C89923 /* CanvasPreviewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasPreviewHelpers.swift; sourceTree = "<group>"; };
+		AC14863F23F4ECDE00C89923 /* WeightFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightFormatter.swift; sourceTree = "<group>"; };
+		AC14864323F4ED5000C89923 /* FormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterTests.swift; sourceTree = "<group>"; };
+		AC14864523F4F36D00C89923 /* PriceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +136,7 @@
 		AC1485A423F4723000C89923 /* FruitViewerTests */ = {
 			isa = PBXGroup;
 			children = (
+				AC14864123F4ED3A00C89923 /* Common */,
 				AC14863223F4D6AD00C89923 /* FruitDetails */,
 				AC14862323F4945100C89923 /* FruitList */,
 				AC1485A723F4723000C89923 /* Info.plist */,
@@ -218,6 +225,24 @@
 		AC14863E23F4EBCA00C89923 /* MeasurementFormatters */ = {
 			isa = PBXGroup;
 			children = (
+				AC14863F23F4ECDE00C89923 /* WeightFormatter.swift */,
+				AC14864523F4F36D00C89923 /* PriceFormatter.swift */,
+			);
+			path = MeasurementFormatters;
+			sourceTree = "<group>";
+		};
+		AC14864123F4ED3A00C89923 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AC14864223F4ED3F00C89923 /* MeasurementFormatters */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		AC14864223F4ED3F00C89923 /* MeasurementFormatters */ = {
+			isa = PBXGroup;
+			children = (
+				AC14864323F4ED5000C89923 /* FormatterTests.swift */,
 			);
 			path = MeasurementFormatters;
 			sourceTree = "<group>";
@@ -328,11 +353,13 @@
 				AC14862823F4C2A900C89923 /* FruitListViewController.swift in Sources */,
 				AC14863623F4D6E000C89923 /* FruitDetailsViewModel.swift in Sources */,
 				AC14862223F4933000C89923 /* FruitCellViewModel.swift in Sources */,
+				AC14864023F4ECDE00C89923 /* WeightFormatter.swift in Sources */,
 				AC14863123F4CDE200C89923 /* ShowFruitCoordinator.swift in Sources */,
 				AC14858F23F4722D00C89923 /* AppDelegate.swift in Sources */,
 				AC14863B23F4DFBC00C89923 /* CanvasPreviewHelpers.swift in Sources */,
 				AC14862A23F4C2EC00C89923 /* FruitCell.swift in Sources */,
 				AC14862023F4922800C89923 /* FruitListViewModel.swift in Sources */,
+				AC14864623F4F36D00C89923 /* PriceFormatter.swift in Sources */,
 				AC14863923F4D9C300C89923 /* FruitDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC14863423F4D6C700C89923 /* FruitDetailsViewModelTests.swift in Sources */,
+				AC14864423F4ED5000C89923 /* FormatterTests.swift in Sources */,
 				AC14862523F4946300C89923 /* FruitListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
