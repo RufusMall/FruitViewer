@@ -14,15 +14,15 @@ class FormatterTests: XCTestCase {
     
     func testWeightFormatterOutputingInKG() {
         let formatter = WeightFormatter()
-        let weightKGs = Measurement(value: 30, unit: UnitMass.kilograms)
-        let output = formatter.formatWeight(measurement: weightKGs)
+        let weightInGrams = Measurement(value: 30, unit: UnitMass.kilograms)
+        let output = formatter.formatWeight(measurement: weightInGrams)
         XCTAssertEqual(output, "30 kg")
     }
     
     func testWeightFormatterAlwaysConvertsToKG() {
         let formatter = WeightFormatter()
-        let weightKGs = Measurement(value: 30, unit: UnitMass.grams)
-        let output = formatter.formatWeight(measurement: weightKGs)
+        let weightInGrams = Measurement(value: 30, unit: UnitMass.grams)
+        let output = formatter.formatWeight(measurement: weightInGrams)
         XCTAssertEqual(output, "0.03 kg")
     }
     

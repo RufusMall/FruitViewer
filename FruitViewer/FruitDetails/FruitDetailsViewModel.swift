@@ -25,7 +25,7 @@ class FruitDetailsViewModel {
         self.fruit = fruit
         
         let formattedCurrency = currencyFormatter.format(pence: fruit.price)
-        let weightAsMeasurement = Measurement(value: Double(fruit.weight), unit: UnitMass.kilograms)
+        let weightAsMeasurement = Measurement(value: Double(fruit.weight), unit: UnitMass.grams)
         let formattedWeight = weightFormatter.formatWeight(measurement: weightAsMeasurement)
         
         name = fruit.type
