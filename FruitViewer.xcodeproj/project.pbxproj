@@ -175,6 +175,7 @@
 		AC14862B23F4C33400C89923 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				AC14863E23F4EBCA00C89923 /* MeasurementFormatters */,
 				AC14862C23F4C34300C89923 /* UIView+LayoutExtensions.swift */,
 				AC14863A23F4DFBC00C89923 /* CanvasPreviewHelpers.swift */,
 			);
@@ -212,6 +213,13 @@
 				AC14863823F4D9C300C89923 /* FruitDetailsViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		AC14863E23F4EBCA00C89923 /* MeasurementFormatters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MeasurementFormatters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -60,8 +60,8 @@ class FruitDetailsViewController: UIViewController, FruitDetailsViewDelegate {
         vStackView.addArrangedSubview(priceLabel)
         vStackView.addArrangedSubview(weightLabel)
         
-        let spacerView = UIView()
-        vStackView.addArrangedSubview(spacerView)
+        let lowerSpaceFillerView = UIView()
+        vStackView.addArrangedSubview(lowerSpaceFillerView)
         
         fruitDetailsViewModel.start()
     }
