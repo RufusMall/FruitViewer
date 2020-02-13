@@ -27,8 +27,7 @@ class FruitListViewController: UIViewController, FruitListViewDelegate {
     }
     
    private let errorLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
+        let label = AccessibleLabel()
         label.textAlignment = .center
         label.textColor = .systemRed
         label.backgroundColor = .white
