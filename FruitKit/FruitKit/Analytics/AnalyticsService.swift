@@ -9,6 +9,13 @@
 public protocol AnalyticsServiceProtocol {
     func reportNetwork(time: TimeInterval)
     func reportScreenShown(time: TimeInterval)
+    
+    
+    /// Concrete implementations must implement this function or will receive issues with recursive calls
+    /// - Parameters:
+    ///   - error: genric error message
+    ///   - lineNumber: line of error
+    ///   - file: file name of error
     func reportError(error: String, lineNumber: Int, file: String)
 }
 
