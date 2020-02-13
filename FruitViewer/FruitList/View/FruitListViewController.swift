@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class FruitListViewController: UIViewController, FruitListViewDelegate {
-    let viewModel: FruitListViewModel
+    private let viewModel: FruitListViewModel
     
     let refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -26,7 +26,7 @@ class FruitListViewController: UIViewController, FruitListViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let errorLabel: UILabel = {
+   private let errorLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
@@ -35,7 +35,7 @@ class FruitListViewController: UIViewController, FruitListViewDelegate {
         return label
     }()
     
-    lazy var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(FruitCell.self, forCellReuseIdentifier: FruitCell.reuseIdentifier)

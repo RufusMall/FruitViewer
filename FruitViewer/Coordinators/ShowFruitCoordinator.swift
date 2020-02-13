@@ -14,8 +14,8 @@ protocol FruitListCoordinatorDelegate: class {
 }
 
 class ShowFruitCoordinator {
-    let fruitService: FruitServiceProtocol
-    let navController: UINavigationController
+    private let fruitService: FruitServiceProtocol
+    private let navController: UINavigationController
     
     init(navController: UINavigationController, fruitService: FruitServiceProtocol) {
         self.fruitService = fruitService
@@ -27,12 +27,16 @@ class ShowFruitCoordinator {
         let fruitListViewContoller = FruitListViewController(viewModel: fruitListViewModel)
         fruitListViewModel.viewDelegate = fruitListViewContoller
         fruitListViewModel.coordinatorDelegate = self
-        navController.setViewControllers([fruitListViewContoller], animated: true)
+        navController.setViewControllers([fruitListViewContoller], animated: false)
     }
 }
 
 extension ShowFruitCoordinator: FruitListCoordinatorDelegate {
     func didSelect(fruit: Fruit) {
-        print("DID SELECT, DIDSELECT")
+        let fruitDetailsVM = FruitDetailsViewModel(fruit: fruit)
+        let fruitDetailsViewController = FruitDetailsViewController(fruitDetailsViewModel: fruitDetailsVM)
+        fruitDetailsVM.viewDelegate = fruitDetailsViewController
+        
+        navController.pushViewController(fruitDetailsViewController, animated: true)
     }
 }

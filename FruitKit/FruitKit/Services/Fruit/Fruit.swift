@@ -22,7 +22,6 @@ public struct Fruit: Codable {
     ///units are pence and kg
     public let price, weight: Int
 
-    
     /// constructor
     /// - Parameters:
     ///   - type: name of the fruit
