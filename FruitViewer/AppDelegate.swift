@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let fruitListViewContoller = FruitListViewController(viewModel: fruitListViewModel)
         fruitListViewModel.viewDelegate = fruitListViewContoller
         
-        window?.rootViewController = fruitListViewContoller
+        let navigationController = UINavigationController(rootViewController: fruitListViewContoller)
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         return true
     }

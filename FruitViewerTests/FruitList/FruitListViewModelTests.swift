@@ -1,5 +1,5 @@
 //
-//  HeadlineViewModelTests.swift
+//  FruitlineViewModelTests.swift
 //  FruitViewer
 //
 //  Created by Rufus on 06/01/2020.

@@ -78,6 +78,7 @@ class FruitListViewController: UIViewController, FruitListViewDelegate {
         }
     }
 }
+
 extension FruitListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
