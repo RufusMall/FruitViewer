@@ -22,6 +22,7 @@ public final class FruitListViewModel {
     var shouldShowError = false
     
     weak var viewDelegate: FruitListViewDelegate?
+    weak var coordinatorDelegate: FruitListCoordinatorDelegate?
     
     init(FruitService: FruitServiceProtocol) {
         self.FruitService = FruitService
@@ -65,5 +66,9 @@ public final class FruitListViewModel {
     
     func cellViewModel(for indexPath: IndexPath) -> FruitCellViewModel {
         return cellViewModels[indexPath.row]
+    }
+    
+    func didSelect(at indexPath: IndexPath) {
+        self.coordinatorDelegate?.didSelect(fruit: fruits[indexPath.row])
     }
 }

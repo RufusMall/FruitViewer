@@ -40,6 +40,7 @@ class FruitListViewController: UIViewController, FruitListViewDelegate {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(FruitCell.self, forCellReuseIdentifier: FruitCell.reuseIdentifier)
         tableView.dataSource = self
+        tableView.delegate = self
         return tableView
     }()
     
@@ -93,5 +94,11 @@ extension FruitListViewController: UITableViewDataSource {
         let cellVM = viewModel.cellViewModel(for: indexPath)
         cell.configure(viewModel: cellVM)
         return cell
+    }
+}
+
+extension FruitListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelect(at: indexPath)
     }
 }
