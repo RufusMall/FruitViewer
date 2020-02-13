@@ -29,6 +29,7 @@
 		AC14864623F4F36D00C89923 /* PriceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14864523F4F36D00C89923 /* PriceFormatter.swift */; };
 		AC14864F23F50F5C00C89923 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14864E23F50F5C00C89923 /* BaseViewModel.swift */; };
 		AC14865123F518FC00C89923 /* MockAnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14865023F518FC00C89923 /* MockAnalyticsService.swift */; };
+		AC14865423F5332D00C89923 /* AccessibleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14865323F5332D00C89923 /* AccessibleLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		AC14864523F4F36D00C89923 /* PriceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceFormatter.swift; sourceTree = "<group>"; };
 		AC14864E23F50F5C00C89923 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		AC14865023F518FC00C89923 /* MockAnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAnalyticsService.swift; sourceTree = "<group>"; };
+		AC14865323F5332D00C89923 /* AccessibleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibleLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 		AC14862B23F4C33400C89923 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				AC14865223F5331A00C89923 /* Views */,
 				AC14863E23F4EBCA00C89923 /* MeasurementFormatters */,
 				AC14862C23F4C34300C89923 /* UIView+LayoutExtensions.swift */,
 				AC14863A23F4DFBC00C89923 /* CanvasPreviewHelpers.swift */,
@@ -251,6 +254,14 @@
 				AC14864323F4ED5000C89923 /* FormatterTests.swift */,
 			);
 			path = MeasurementFormatters;
+			sourceTree = "<group>";
+		};
+		AC14865223F5331A00C89923 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AC14865323F5332D00C89923 /* AccessibleLabel.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,6 +378,7 @@
 				AC14862A23F4C2EC00C89923 /* FruitCell.swift in Sources */,
 				AC14862023F4922800C89923 /* FruitListViewModel.swift in Sources */,
 				AC14864623F4F36D00C89923 /* PriceFormatter.swift in Sources */,
+				AC14865423F5332D00C89923 /* AccessibleLabel.swift in Sources */,
 				AC14863923F4D9C300C89923 /* FruitDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

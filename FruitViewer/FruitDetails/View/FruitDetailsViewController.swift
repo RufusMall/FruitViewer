@@ -22,24 +22,18 @@ class FruitDetailsViewController: UIViewController, FruitDetailsViewDelegate {
     }()
     
     let titleLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        let label = AccessibleLabel(textStyle: .largeTitle)
         label.textAlignment = .center
         return label
     }()
     
     let priceLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.font = UIFont.preferredFont(forTextStyle: .body)
+        let label = AccessibleLabel(textStyle: .body)
         return label
     }()
     
     let weightLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.font = UIFont.preferredFont(forTextStyle: .body)
+       let label = AccessibleLabel(textStyle: .body)
         return label
     }()
     

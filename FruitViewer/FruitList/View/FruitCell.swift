@@ -11,8 +11,7 @@ class FruitCell: UITableViewCell {
     static let reuseIdentifier = "fruitCell"
     
     let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        let label = AccessibleLabel(textStyle: .largeTitle)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
