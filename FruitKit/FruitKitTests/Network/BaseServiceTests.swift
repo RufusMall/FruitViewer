@@ -23,7 +23,7 @@ class BaseServiceTests: XCTestCase {
         typealias DecodableCompletion = (Result<[DecodableStruct],Error>)->()
         
         let mockClient = MockWebClient()
-        let baseService = BaseService(webClient: mockClient, baseURL: URL(string: "https://domain.com")!)
+        let baseService = BaseService(webClient: mockClient, baseURL: URL(string: "https://domain.com")!, analyticsService: nil)
         baseService.get(path: "path") { (result: Result<DecodableStruct,Error>) in
             
         }

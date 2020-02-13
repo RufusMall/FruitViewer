@@ -9,17 +9,19 @@
 import Foundation
 
 public class BaseService {
-    private let webClient: WebClientProtocol
     internal let baseURL: URL
+    private let webClient: WebClientProtocol
+    private let analyticsService: AnalyticsServiceProtocol?
     private let decoder = JSONDecoder()
     
     /// init services
     /// - Parameters:
     ///   - webClient: defaults to using system shared Web Client
     ///   - baseURL: base URL
-    public init(webClient: WebClientProtocol = WebClient.shared, baseURL: URL) {
+    public init(webClient: WebClientProtocol = WebClient.shared, baseURL: URL, analyticsService: AnalyticsServiceProtocol?) {
         self.webClient = webClient
         self.baseURL = baseURL
+        self.analyticsService = analyticsService
     }
     
     public func get<T: Decodable>(path: String, completion: @escaping (Result<T, Error>)->()) {
@@ -28,18 +30,23 @@ public class BaseService {
     }
     
     public func get<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>)->()) {
-           webClient.get(url: url) { result in
-               switch result {
-               case .success(let data):
-                   do {
-                       let decodedItem = try self.decoder.decode(T.self, from: data)
-                       completion(.success(decodedItem))
-                   } catch let error {
-                       completion(.failure(error))
-                   }
-               case .failure(let error):
-                   completion(.failure(error))
-               }
-           }
-       }
+        let timer = Timer.createStartedTimer()
+        
+        webClient.get(url: url) { result in
+            let time = timer.stop()
+            self.analyticsService?.reportNetwork(time: time)
+            
+            switch result {
+            case .success(let data):
+                do {
+                    let decodedItem = try self.decoder.decode(T.self, from: data)
+                    completion(.success(decodedItem))
+                } catch let error {
+                    completion(.failure(error))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }

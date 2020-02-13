@@ -19,8 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let navigationController = UINavigationController()
-        let fruitService = FruitService(baseURL: Environment.devFruit.url)
-        fruitCoordinator = ShowFruitCoordinator(navController: navigationController, fruitService: fruitService)
+        let analyticsService = AnalyticsService(baseURL: Environment.devAnalytics.url)
+        let fruitService = FruitService(baseURL: Environment.devFruit.url, analyticsService: analyticsService)
+        fruitCoordinator = ShowFruitCoordinator(navController: navigationController, fruitService: fruitService, analyticsService: analyticsService)
         
         fruitCoordinator?.start()
         window?.rootViewController = navigationController

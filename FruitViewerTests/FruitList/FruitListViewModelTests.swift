@@ -13,13 +13,16 @@ import XCTest
 
 class FruitListViewModelTests: XCTestCase, FruitListViewDelegate, FruitListCoordinatorDelegate {
     var fruitService: MockFruitService!
+    var analyticsService: MockAnalyticsService!
     var viewModel: FruitListViewModel! // sut
     var viewModelUpdatedExpectation: XCTestExpectation?
     var fruitSelectedExpectation: XCTestExpectation?
     
     override func setUp() {
-        fruitService = MockFruitService(baseURL: Environment.devFruit.url)
-        viewModel = FruitListViewModel(FruitService: fruitService)
+        fruitService = MockFruitService()
+        analyticsService = MockAnalyticsService()
+        
+        viewModel = FruitListViewModel(fruitService: fruitService, analyticsService: analyticsService)
         viewModel.viewDelegate = self
         viewModel.coordinatorDelegate = self
     }
@@ -103,7 +106,7 @@ class FruitListViewModelTests: XCTestCase, FruitListViewDelegate, FruitListCoord
     }
 }
 
-class MockFruitService: BaseService, FruitServiceProtocol {
+class MockFruitService: FruitServiceProtocol {
     
     var reloadIdentifier = ""
     var shouldFail = false
@@ -118,7 +121,7 @@ class MockFruitService: BaseService, FruitServiceProtocol {
         var fruits = [Fruit]()
         let count = 10
         for i in 0..<count {
-            let fruit = Fruit(type: "\(reloadIdentifier)fruit type \(i)", price: i, weight: i)
+            let fruit = Fruit(typeo: "\(reloadIdentifier)fruit type \(i)", price: i, weight: i)
             fruits.append(fruit)
         }
         

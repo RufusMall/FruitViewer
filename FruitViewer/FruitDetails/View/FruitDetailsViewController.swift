@@ -23,6 +23,7 @@ class FruitDetailsViewController: UIViewController, FruitDetailsViewDelegate {
     
     let titleLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         label.textAlignment = .center
         return label
@@ -30,12 +31,14 @@ class FruitDetailsViewController: UIViewController, FruitDetailsViewDelegate {
     
     let priceLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         label.font = UIFont.preferredFont(forTextStyle: .body)
         return label
     }()
     
     let weightLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         label.font = UIFont.preferredFont(forTextStyle: .body)
         return label
     }()
@@ -52,7 +55,7 @@ class FruitDetailsViewController: UIViewController, FruitDetailsViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         view.addSubview(vStackView)
         vStackView.constrainPinningEdgesToSuperview(useSystemSpacing: true, multiplier: 1.0)
         vStackView.isLayoutMarginsRelativeArrangement = true
@@ -81,7 +84,7 @@ class FruitDetailsPreview: ViewControllerPreviewProvider<FruitDetailsViewControl
     
     override class func makeController() -> UIViewController {
         
-        let fruit = Fruit(type: "Apple", price: 200, weight: 100)
+        let fruit = Fruit(typeo: "Apple", price: 200, weight: 100)
         let fruitDetailsVM = FruitDetailsViewModel(fruit: fruit, weightFormatter: WeightFormatter(), currencyFormatter: CurrencyFormatter())
         let fruitDetailsViewController = FruitDetailsViewController(fruitDetailsViewModel: fruitDetailsVM)
         fruitDetailsVM.viewDelegate = fruitDetailsViewController

@@ -12,7 +12,7 @@ protocol FruitDetailsViewDelegate: class {
     func didUpdate(viewModel: FruitDetailsViewModel)
 }
 
-class FruitDetailsViewModel {
+class FruitDetailsViewModel: BaseViewModel {
     private let fruit: Fruit
     weak var viewDelegate: FruitDetailsViewDelegate?
     
@@ -21,7 +21,7 @@ class FruitDetailsViewModel {
     var price: String = ""
     var weight: String = ""
     
-    init(fruit: Fruit, weightFormatter: WeightFormatter, currencyFormatter: CurrencyFormatter) {
+    init(fruit: Fruit, weightFormatter: WeightFormatter, currencyFormatter: CurrencyFormatter, analyticsService: AnalyticsServiceProtocol? = nil) {
         self.fruit = fruit
         
         let formattedCurrency = currencyFormatter.format(pence: fruit.price)
@@ -31,9 +31,11 @@ class FruitDetailsViewModel {
         name = fruit.type
         price = "Price: \(formattedCurrency)"
         weight = "Weight: \(formattedWeight)"
+        super.init(analyticsService: analyticsService)
     }
     
     func start() {
         viewDelegate?.didUpdate(viewModel: self)
+        super.reportViewShown()
     }
 }

@@ -21,6 +21,9 @@
 		AC14861823F48AA300C89923 /* FruitServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14861723F48AA300C89923 /* FruitServiceTests.swift */; };
 		AC14861A23F48AE300C89923 /* FruitKitTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14861923F48AE300C89923 /* FruitKitTestCase.swift */; };
 		AC14861C23F48B3D00C89923 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14861B23F48B3D00C89923 /* Environment.swift */; };
+		AC14864923F5036900C89923 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14864823F5036900C89923 /* Event.swift */; };
+		AC14864B23F5039800C89923 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14864A23F5039800C89923 /* AnalyticsService.swift */; };
+		AC14864D23F5048300C89923 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14864C23F5048300C89923 /* Timer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		AC14861723F48AA300C89923 /* FruitServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitServiceTests.swift; sourceTree = "<group>"; };
 		AC14861923F48AE300C89923 /* FruitKitTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitKitTestCase.swift; sourceTree = "<group>"; };
 		AC14861B23F48B3D00C89923 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		AC14864823F5036900C89923 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		AC14864A23F5039800C89923 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
+		AC14864C23F5048300C89923 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,10 +99,12 @@
 		AC1485E223F47E3A00C89923 /* FruitKit */ = {
 			isa = PBXGroup;
 			children = (
+				AC14864723F5034D00C89923 /* Analytics */,
 				AC14860923F4876700C89923 /* Services */,
 				AC1485FF23F484A300C89923 /* Network */,
 				AC1485E323F47E3A00C89923 /* FruitKit.h */,
 				AC1485E423F47E3A00C89923 /* Info.plist */,
+				AC14864C23F5048300C89923 /* Timer.swift */,
 			);
 			path = FruitKit;
 			sourceTree = "<group>";
@@ -157,6 +165,15 @@
 				AC14861723F48AA300C89923 /* FruitServiceTests.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		AC14864723F5034D00C89923 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				AC14864823F5036900C89923 /* Event.swift */,
+				AC14864A23F5039800C89923 /* AnalyticsService.swift */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,7 +287,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC14864923F5036900C89923 /* Event.swift in Sources */,
 				AC14860E23F4888400C89923 /* FruitService.swift in Sources */,
+				AC14864B23F5039800C89923 /* AnalyticsService.swift in Sources */,
+				AC14864D23F5048300C89923 /* Timer.swift in Sources */,
 				AC14860C23F4878800C89923 /* Fruit.swift in Sources */,
 				AC14861223F4895500C89923 /* BaseService.swift in Sources */,
 				AC14861C23F48B3D00C89923 /* Environment.swift in Sources */,
