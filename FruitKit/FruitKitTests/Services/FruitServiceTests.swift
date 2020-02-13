@@ -14,7 +14,7 @@ class FruitServiceTests: FruitKitTestCase {
     private var fruitService: FruitServiceProtocol!
     
     override func setUp() {
-        fruitService = FruitService(baseURL: self.testEnvironmentURL)
+        fruitService = FruitService(baseURL: self.testEnvironmentURL, analyticsService: nil)
     }
     
     func testGetFruitSucceeds() {
@@ -23,7 +23,7 @@ class FruitServiceTests: FruitKitTestCase {
         fruitService.getFruits { (result) in
             switch result {
             case .success(let response):
-                print(response)
+//                print(response)
                 assert(response.fruit.count != 0)
                 break
             case .failure(let error):

@@ -18,7 +18,7 @@ class FruitListViewModelTests: XCTestCase, FruitListViewDelegate, FruitListCoord
     var fruitSelectedExpectation: XCTestExpectation?
     
     override func setUp() {
-        fruitService = MockFruitService(baseURL: Environment.devFruit.url)
+        fruitService = MockFruitService()
         viewModel = FruitListViewModel(FruitService: fruitService)
         viewModel.viewDelegate = self
         viewModel.coordinatorDelegate = self
@@ -103,7 +103,7 @@ class FruitListViewModelTests: XCTestCase, FruitListViewDelegate, FruitListCoord
     }
 }
 
-class MockFruitService: BaseService, FruitServiceProtocol {
+class MockFruitService: FruitServiceProtocol {
     
     var reloadIdentifier = ""
     var shouldFail = false
