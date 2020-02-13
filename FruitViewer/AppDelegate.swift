@@ -16,16 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var fruitCoordinator: ShowFruitCoordinator?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        window = UIWindow(frame: UIScreen.main.bounds)
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = window
         
-        let navigationController = UINavigationController()
         let analyticsService = AnalyticsService(baseURL: Environment.devAnalytics.url)
         let fruitService = FruitService(baseURL: Environment.devFruit.url, analyticsService: analyticsService)
-        fruitCoordinator = ShowFruitCoordinator(navController: navigationController, fruitService: fruitService, analyticsService: analyticsService)
-        
+        fruitCoordinator = ShowFruitCoordinator(window: window, fruitService: fruitService, analyticsService: analyticsService)
         fruitCoordinator?.start()
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
+        
         return true
     }
 }

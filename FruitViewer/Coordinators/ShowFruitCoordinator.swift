@@ -15,13 +15,15 @@ protocol FruitListCoordinatorDelegate: class {
 
 class ShowFruitCoordinator {
     private let fruitService: FruitServiceProtocol
-    private let navController: UINavigationController
     private let analyticsService: AnalyticsServiceProtocol
+    private let window: UIWindow
+    private let splitViewController: UISplitViewController
     
-    init(navController: UINavigationController, fruitService: FruitServiceProtocol, analyticsService: AnalyticsService) {
+    init(window: UIWindow, fruitService: FruitServiceProtocol, analyticsService: AnalyticsService) {
         self.fruitService = fruitService
-        self.navController = navController
+        self.window = window
         self.analyticsService = analyticsService
+        self.splitViewController = UISplitViewController()
     }
     
     func start() {
@@ -29,7 +31,13 @@ class ShowFruitCoordinator {
         let fruitListViewContoller = FruitListViewController(viewModel: fruitListViewModel)
         fruitListViewModel.viewDelegate = fruitListViewContoller
         fruitListViewModel.coordinatorDelegate = self
-        navController.setViewControllers([fruitListViewContoller], animated: false)
+        
+        let navController = UINavigationController(rootViewController: fruitListViewContoller)
+        splitViewController.viewControllers = [navController]
+        
+        splitViewController.preferredDisplayMode = .allVisible
+        window.rootViewController = splitViewController
+        window.makeKeyAndVisible()
     }
 }
 
@@ -43,7 +51,6 @@ extension ShowFruitCoordinator: FruitListCoordinatorDelegate {
         
         let fruitDetailsViewController = FruitDetailsViewController(fruitDetailsViewModel: fruitDetailsVM)
         fruitDetailsVM.viewDelegate = fruitDetailsViewController
-        
-        navController.pushViewController(fruitDetailsViewController, animated: true)
+        splitViewController.showDetailViewController(fruitDetailsViewController, sender: self)
     }
 }
