@@ -16,6 +16,7 @@ class FruitDetailsViewController: UIViewController, FruitDetailsViewDelegate {
         let vStack = UIStackView()
         vStack.axis = .vertical
         vStack.distribution = .fill
+        vStack.spacing = UIStackView.spacingUseSystem
         vStack.translatesAutoresizingMaskIntoConstraints = false
         return vStack
     }()
@@ -81,7 +82,7 @@ class FruitDetailsPreview: ViewControllerPreviewProvider<FruitDetailsViewControl
     override class func makeController() -> UIViewController {
         
         let fruit = Fruit(type: "Apple", price: 200, weight: 100)
-        let fruitDetailsVM = FruitDetailsViewModel(fruit: fruit)
+        let fruitDetailsVM = FruitDetailsViewModel(fruit: fruit, weightFormatter: WeightFormatter(), currencyFormatter: CurrencyFormatter())
         let fruitDetailsViewController = FruitDetailsViewController(fruitDetailsViewModel: fruitDetailsVM)
         fruitDetailsVM.viewDelegate = fruitDetailsViewController
         let navController = UINavigationController(rootViewController: fruitDetailsViewController)

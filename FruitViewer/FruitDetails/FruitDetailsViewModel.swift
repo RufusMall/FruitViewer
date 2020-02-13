@@ -21,15 +21,19 @@ class FruitDetailsViewModel {
     var price: String = ""
     var weight: String = ""
     
-    init(fruit: Fruit) {
+    init(fruit: Fruit, weightFormatter: WeightFormatter, currencyFormatter: CurrencyFormatter) {
         self.fruit = fruit
+        
+        let formattedCurrency = currencyFormatter.format(pence: fruit.price)
+        let weightAsMeasurement = Measurement(value: Double(fruit.weight), unit: UnitMass.kilograms)
+        let formattedWeight = weightFormatter.formatWeight(measurement: weightAsMeasurement)
+        
+        name = fruit.type
+        price = "Price: \(formattedCurrency)"
+        weight = "Weight: \(formattedWeight)"
     }
     
     func start() {
-        name = fruit.type
-        price = "\(fruit.price)"
-        weight = "\(fruit.weight)"
-        
         viewDelegate?.didUpdate(viewModel: self)
     }
 }

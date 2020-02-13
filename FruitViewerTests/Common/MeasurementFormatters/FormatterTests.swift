@@ -15,14 +15,14 @@ class FormatterTests: XCTestCase {
     func testWeightFormatterOutputingInKG() {
         let formatter = WeightFormatter()
         let weightKGs = Measurement(value: 30, unit: UnitMass.kilograms)
-        let output = formatter.formatWeightInKG(measurement: weightKGs)
+        let output = formatter.formatWeight(measurement: weightKGs)
         XCTAssertEqual(output, "30 kg")
     }
     
     func testWeightFormatterAlwaysConvertsToKG() {
         let formatter = WeightFormatter()
         let weightKGs = Measurement(value: 30, unit: UnitMass.grams)
-        let output = formatter.formatWeightInKG(measurement: weightKGs)
+        let output = formatter.formatWeight(measurement: weightKGs)
         XCTAssertEqual(output, "0.03 kg")
     }
     
@@ -33,16 +33,16 @@ class FormatterTests: XCTestCase {
     }
     
     func testCurrencyFormatterOutput10pence() {
-           let formatter = CurrencyFormatter()
-           let output = formatter.format(pence: 10)
-           XCTAssertEqual(output, "£0.10")
-       }
+        let formatter = CurrencyFormatter()
+        let output = formatter.format(pence: 10)
+        XCTAssertEqual(output, "£0.10")
+    }
     
     func testCurrencyFormatterOutput1Pence() {
-            let formatter = CurrencyFormatter()
-            let output = formatter.format(pence: 1)
-            XCTAssertEqual(output, "£0.01")
-        }
+        let formatter = CurrencyFormatter()
+        let output = formatter.format(pence: 1)
+        XCTAssertEqual(output, "£0.01")
+    }
     
     func testCurrencyFormatterOutputing99Pence() {
         let formatter = CurrencyFormatter()

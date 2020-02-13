@@ -11,7 +11,7 @@ import Foundation
 class WeightFormatter {
     private let measurementFormatter = MeasurementFormatter()
 
-    func formatWeightInKG(measurement: Measurement<UnitMass>) -> String {
+    func formatWeight(measurement: Measurement<UnitMass>) -> String {
         
         let measurementInKG = measurement.converted(to: .kilograms)
         measurementFormatter.unitOptions = .providedUnit

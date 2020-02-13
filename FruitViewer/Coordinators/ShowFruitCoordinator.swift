@@ -33,7 +33,7 @@ class ShowFruitCoordinator {
 
 extension ShowFruitCoordinator: FruitListCoordinatorDelegate {
     func didSelect(fruit: Fruit) {
-        let fruitDetailsVM = FruitDetailsViewModel(fruit: fruit)
+        let fruitDetailsVM = FruitDetailsViewModel(fruit: fruit, weightFormatter: WeightFormatter(), currencyFormatter: CurrencyFormatter())
         let fruitDetailsViewController = FruitDetailsViewController(fruitDetailsViewModel: fruitDetailsVM)
         fruitDetailsVM.viewDelegate = fruitDetailsViewController
         
