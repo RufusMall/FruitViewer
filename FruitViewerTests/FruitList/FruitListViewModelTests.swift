@@ -11,15 +11,17 @@ import XCTest
 @testable import FruitKit
 @testable import FruitViewer
 
-class FruitListViewModelTests: XCTestCase, FruitListViewDelegate {
+class FruitListViewModelTests: XCTestCase, FruitListViewDelegate, FruitListCoordinatorDelegate {
     var fruitService: MockFruitService!
     var viewModel: FruitListViewModel! // sut
     var viewModelUpdatedExpectation: XCTestExpectation?
+    var fruitSelectedExpectation: XCTestExpectation?
     
     override func setUp() {
         fruitService = MockFruitService(baseURL: Environment.devFruit.url)
         viewModel = FruitListViewModel(FruitService: fruitService)
         viewModel.viewDelegate = self
+        viewModel.coordinatorDelegate = self
     }
     
     override func tearDown() {
@@ -79,8 +81,25 @@ class FruitListViewModelTests: XCTestCase, FruitListViewDelegate {
         XCTAssertEqual(firstCell.name, "reloaded fruit type 0")
     }
     
+    func testFruitSelectedNotifiesCoordinator() {
+        viewModelUpdatedExpectation = expectation(description: "viewModelUpdated")
+        
+        fruitSelectedExpectation = expectation(description: "fruitSelectedExpectation")
+        
+        viewModel.start()
+        wait(for: [viewModelUpdatedExpectation!], timeout: 20.0)
+        viewModel.didSelect(at: IndexPath(row: 0, section: 0))
+        wait(for: [fruitSelectedExpectation!], timeout: 20.0)
+        let firstCell = viewModel.cellViewModel(for: IndexPath(row: 0, section: 0))
+        XCTAssertEqual(firstCell.name, "fruit type 0")
+    }
+    
     func didUpdate(viewModel: FruitListViewModel) {
         viewModelUpdatedExpectation?.fulfill()
+    }
+    
+    func didSelect(fruit: Fruit) {
+        fruitSelectedExpectation?.fulfill()
     }
 }
 

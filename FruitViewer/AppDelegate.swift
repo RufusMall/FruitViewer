@@ -13,15 +13,16 @@ import FruitKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    var fruitCoordinator: ShowFruitCoordinator?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let fruitListViewModel = FruitListViewModel(FruitService: FruitService(baseURL: Environment.devFruit.url))
-        let fruitListViewContoller = FruitListViewController(viewModel: fruitListViewModel)
-        fruitListViewModel.viewDelegate = fruitListViewContoller
+        let navigationController = UINavigationController()
+        let fruitService = FruitService(baseURL: Environment.devFruit.url)
+        fruitCoordinator = ShowFruitCoordinator(navController: navigationController, fruitService: fruitService)
         
-        let navigationController = UINavigationController(rootViewController: fruitListViewContoller)
+        fruitCoordinator?.start()
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         return true
