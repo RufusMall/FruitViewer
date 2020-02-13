@@ -13,10 +13,11 @@ protocol FruitListViewDelegate: class {
     func didUpdate(viewModel: FruitListViewModel)
 }
 
-public final class FruitListViewModel {
-    private let FruitService : FruitServiceProtocol
+public class FruitListViewModel: BaseViewModel {
+    private let fruitService : FruitServiceProtocol
     private var cellViewModels = [FruitCellViewModel]()
     private var fruits = [Fruit]()
+    private let analyticsService: AnalyticsServiceProtocol
     let title = "Fruit"
     var errorMesage: String?
     var shouldShowError = false
@@ -24,8 +25,10 @@ public final class FruitListViewModel {
     weak var viewDelegate: FruitListViewDelegate?
     weak var coordinatorDelegate: FruitListCoordinatorDelegate?
     
-    init(FruitService: FruitServiceProtocol) {
-        self.FruitService = FruitService
+    init(fruitService: FruitServiceProtocol, analyticsService: AnalyticsServiceProtocol) {
+        self.fruitService = fruitService
+        self.analyticsService = analyticsService
+        super.init(analyticsService: analyticsService)
     }
     
     func start() {
@@ -33,7 +36,7 @@ public final class FruitListViewModel {
     }
     
     func refresh() {
-        FruitService.getFruits { [weak self] (result) in
+        fruitService.getFruits { [weak self] (result) in
             guard let self = self else { return }
             
             switch result {
@@ -45,9 +48,10 @@ public final class FruitListViewModel {
             case .failure(let error):
                 self.errorMesage = error.localizedDescription
                 self.shouldShowError = self.cellViewModels.count == 0
-                print(error.localizedDescription)
+                self.analyticsService.reportError(error: error.localizedDescription)
             }
             self.viewDelegate?.didUpdate(viewModel: self)
+            self.reportViewShown()
         }
     }
     

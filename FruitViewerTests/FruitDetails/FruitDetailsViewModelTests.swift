@@ -14,9 +14,15 @@ import XCTest
 class FruitDetailsViewModelTests: XCTestCase, FruitDetailsViewDelegate {
     var viewModel: FruitDetailsViewModel! // sut
     var viewModelUpdatedExpectation: XCTestExpectation?
+    var analyticsService: MockAnalyticsService!
     
     override func setUp() {
-        viewModel = FruitDetailsViewModel(fruit: Fruit(type: "apple", price: 200, weight: 4), weightFormatter: WeightFormatter(), currencyFormatter: CurrencyFormatter())
+        analyticsService = MockAnalyticsService()
+        
+        viewModel = FruitDetailsViewModel(fruit: Fruit(typeo: "apple", price: 200, weight: 4),
+                                          weightFormatter: WeightFormatter(),
+                                          currencyFormatter: CurrencyFormatter(),
+                                          analyticsService: analyticsService)
         
         viewModel.viewDelegate = self
     }
@@ -31,6 +37,7 @@ class FruitDetailsViewModelTests: XCTestCase, FruitDetailsViewDelegate {
         
         wait(for: [viewModelUpdatedExpectation!], timeout: 20.0)
         
+        XCTAssert(analyticsService.didReportScreen)
         XCTAssertEqual(viewModel.name, "apple")
         XCTAssertEqual(viewModel.price, "Price: £2.00")
         XCTAssertEqual(viewModel.weight, "Weight: 0.004 kg")

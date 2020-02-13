@@ -27,6 +27,8 @@
 		AC14864023F4ECDE00C89923 /* WeightFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14863F23F4ECDE00C89923 /* WeightFormatter.swift */; };
 		AC14864423F4ED5000C89923 /* FormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14864323F4ED5000C89923 /* FormatterTests.swift */; };
 		AC14864623F4F36D00C89923 /* PriceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14864523F4F36D00C89923 /* PriceFormatter.swift */; };
+		AC14864F23F50F5C00C89923 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14864E23F50F5C00C89923 /* BaseViewModel.swift */; };
+		AC14865123F518FC00C89923 /* MockAnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC14865023F518FC00C89923 /* MockAnalyticsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		AC14863F23F4ECDE00C89923 /* WeightFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightFormatter.swift; sourceTree = "<group>"; };
 		AC14864323F4ED5000C89923 /* FormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterTests.swift; sourceTree = "<group>"; };
 		AC14864523F4F36D00C89923 /* PriceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceFormatter.swift; sourceTree = "<group>"; };
+		AC14864E23F50F5C00C89923 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		AC14865023F518FC00C89923 /* MockAnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAnalyticsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +189,7 @@
 				AC14863E23F4EBCA00C89923 /* MeasurementFormatters */,
 				AC14862C23F4C34300C89923 /* UIView+LayoutExtensions.swift */,
 				AC14863A23F4DFBC00C89923 /* CanvasPreviewHelpers.swift */,
+				AC14864E23F50F5C00C89923 /* BaseViewModel.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				AC14864223F4ED3F00C89923 /* MeasurementFormatters */,
+				AC14865023F518FC00C89923 /* MockAnalyticsService.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -356,6 +362,7 @@
 				AC14864023F4ECDE00C89923 /* WeightFormatter.swift in Sources */,
 				AC14863123F4CDE200C89923 /* ShowFruitCoordinator.swift in Sources */,
 				AC14858F23F4722D00C89923 /* AppDelegate.swift in Sources */,
+				AC14864F23F50F5C00C89923 /* BaseViewModel.swift in Sources */,
 				AC14863B23F4DFBC00C89923 /* CanvasPreviewHelpers.swift in Sources */,
 				AC14862A23F4C2EC00C89923 /* FruitCell.swift in Sources */,
 				AC14862023F4922800C89923 /* FruitListViewModel.swift in Sources */,
@@ -368,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC14865123F518FC00C89923 /* MockAnalyticsService.swift in Sources */,
 				AC14863423F4D6C700C89923 /* FruitDetailsViewModelTests.swift in Sources */,
 				AC14864423F4ED5000C89923 /* FormatterTests.swift in Sources */,
 				AC14862523F4946300C89923 /* FruitListViewModelTests.swift in Sources */,

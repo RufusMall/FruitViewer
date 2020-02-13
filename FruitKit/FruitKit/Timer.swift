@@ -9,7 +9,7 @@ import QuartzCore
 
 public class Timer {
     private var startTime: TimeInterval = 0
-    public private(set) var hasStarted = false
+    public private(set) var isRunning = false
     
    public static func createStartedTimer() -> Timer {
         let timer = Timer()
@@ -18,15 +18,15 @@ public class Timer {
     }
     
     public func start() {
-        hasStarted = true
+        isRunning = true
         startTime = CACurrentMediaTime()
     }
     
     public func stop() -> TimeInterval {
-        precondition(hasStarted, "Tried to stop a timer without starting it")
+        precondition(isRunning, "Tried to stop a timer without starting it")
         
         let elapsedTime = CACurrentMediaTime() - startTime
-        hasStarted = false
+        isRunning = false
         return elapsedTime
     }
 }

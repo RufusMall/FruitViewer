@@ -18,7 +18,6 @@ public struct FruitResponse: Codable {
 
 public struct Fruit: Codable {
     public let type: String
-    
     ///units are pence and kg
     public let price, weight: Int
 
@@ -27,8 +26,8 @@ public struct Fruit: Codable {
     ///   - type: name of the fruit
     ///   - price: price in pense
     ///   - weight: weight in KG
-    public init(type: String, price: Int, weight: Int) {
-        self.type = type
+    public init(typeo: String, price: Int, weight: Int) {
+        self.type = typeo
         self.price = price
         self.weight = weight
     }

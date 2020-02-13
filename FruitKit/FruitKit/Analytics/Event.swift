@@ -8,15 +8,27 @@
 
 internal enum Event {
     case networkRequest(time: TimeInterval)
+    case display(time: TimeInterval)
+    case report(error: String)
+}
+
+private extension TimeInterval {
+    func toMS() -> Int{
+        return Int(self * 1000)
+    }
 }
 
 internal extension Event {
-    
     var queryParams: [URLQueryItem] {
         switch self {
         case .networkRequest(let time):
-            let time = Int(time * 1000)
-            return [URLQueryItem(name: "event", value: "load"), URLQueryItem(name: "data", value: "\(time)")]
+            let timeMS = time.toMS()
+            return [URLQueryItem(name: "event", value: "load"), URLQueryItem(name: "data", value: "\(timeMS)")]
+        case .display(let time):
+            let timeMS = time.toMS()
+            return [URLQueryItem(name: "event", value: "display"), URLQueryItem(name: "data", value: "\(timeMS)")]
+        case .report(let error):
+            return [URLQueryItem(name: "event", value: "error"), URLQueryItem(name: "data", value: error)]
         }
     }
     

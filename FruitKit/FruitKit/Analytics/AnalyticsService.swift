@@ -7,7 +7,16 @@
 //
 
 public protocol AnalyticsServiceProtocol {
-    func reportNetworkEvent(time: TimeInterval)
+    func reportNetwork(time: TimeInterval)
+    func reportScreenShown(time: TimeInterval)
+    func reportError(error: String, lineNumber: Int, file: String)
+}
+
+//this is a trick so we can use the default paramaters in the protocol.
+public extension AnalyticsServiceProtocol {
+    func reportError(error: String, lineNumber: Int = #line, file: String = #file) {
+        self.reportError(error: error, lineNumber: lineNumber, file: file)
+    }
 }
 
 public class AnalyticsService: AnalyticsServiceProtocol {
@@ -24,8 +33,18 @@ public class AnalyticsService: AnalyticsServiceProtocol {
         webClient.get(url: url, completion: {_ in})
     }
     
-    public func reportNetworkEvent(time: TimeInterval) {
+    public func reportNetwork(time: TimeInterval) {
         let event = Event.networkRequest(time: time)
         performRequestForEvent(event: event)
+    }
+    
+    public func reportScreenShown(time: TimeInterval) {
+        let event = Event.display(time: time)
+        performRequestForEvent(event: event)
+    }
+    
+    public func reportError(error: String, lineNumber: Int, file: String) {
+        let report = "Error:\(error) atLine: \(lineNumber)  inFile:\(file)"
+        performRequestForEvent(event: .report(error: report))
     }
 }

@@ -34,7 +34,7 @@ public class BaseService {
         
         webClient.get(url: url) { result in
             let time = timer.stop()
-            self.analyticsService?.reportNetworkEvent(time: time)
+            self.analyticsService?.reportNetwork(time: time)
             
             switch result {
             case .success(let data):

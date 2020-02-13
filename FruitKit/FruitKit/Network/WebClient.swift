@@ -27,7 +27,7 @@ public class WebClient: WebClientProtocol {
     
     @discardableResult
     open func get(url: URL, completion: @escaping (Result<Data,Error>)->()) -> URLSessionTask {
-        print("loadingURL:\(url)")
+        print("loadingURL: \(url)")
         let task = session.dataTask(with: url) { data, response, error in
             
             DispatchQueue.main.async {
